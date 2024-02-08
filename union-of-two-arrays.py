@@ -6,3 +6,4 @@ class Solution:
         
         return len(all_list)
     
+    
