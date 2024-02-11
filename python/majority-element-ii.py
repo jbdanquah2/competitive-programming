@@ -7,6 +7,11 @@ class Solution(object):
         :rtype: List[int]
         """
 
+        freq = len(nums) / 3
+
         nums_count = Counter(nums)
 
-        return  [ key for key, value in nums_count.items() if value > len(nums) / 3]
+        result_set = {key for key, value in nums_count.items() if value > freq}
+
+        return  list(result_set)
+
