@@ -12,6 +12,6 @@ while(k):
 
     k -= 1
 
-return num
+print(num)
 
 
