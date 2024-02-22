@@ -1,36 +1,32 @@
-"""
+# how do implement this using hashpmap or a dict:
+# create a dict to store the boxes and their count
+# iterate through the boxes and store the boxes in the dict
+# iterate through the dict and compare the boxes to get the minimum number of visible boxes
+# return the minimum number of visible boxes
 
-Mishka has got n empty boxes. For every i (1 ≤ i ≤ n), i-th box is a cube with side length ai.
+def e_boxes_packing():
+    n = int(input())
+    boxes = list(map(int, input().split()))
+    box_dict = {}
 
-Mishka can put a box i into another box j if the following conditions are met:
+    for box in boxes:
+        if box in box_dict:
+            box_dict[box] += 1
+        else:
+            box_dict[box] = 1
 
-i-th box is not put into another box;
-j-th box doesn't contain any other boxes;
-box i is smaller than box j (ai < aj).
-Mishka can put boxes into each other an arbitrary number of times. He wants to minimize the number of visible boxes. A box is called visible iff it is not put into some another box.
+    max_box = 0
 
-Help Mishka to determine the minimum possible number of visible boxes!
+    for box in box_dict:
+        if box_dict[box] > max_box:
+            max_box = box_dict[box]
 
-Input
-The first line contains one integer n (1 ≤ n ≤ 5000) — the number of boxes Mishka has got.
+    print(max_box)
 
-The second line contains n integers a1, a2, ..., an (1 ≤ ai ≤ 109), where ai is the side length of i-th box.
+e_boxes_packing()
 
-Output
-Print the minimum possible number of visible boxes.
-
-"""
-
-num_of_boxes = int(input())
-boxes = list(map(int, input().split(' ')))
-boxes.sort()
-
-for i in range(1, len(boxes)):
-    if boxes[i] > boxes[i-1]:
-        num_of_boxes -= 1
-
-
-print(num_of_boxes)
+# Time complexity: O(n)
+# Space complexity: O(n)
 
 
 
