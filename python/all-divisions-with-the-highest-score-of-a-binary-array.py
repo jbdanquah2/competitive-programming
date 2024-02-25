@@ -1,23 +1,23 @@
 class Solution:
     def maxScoreIndices(self, nums):
 
-        totalOnes = sum(nums)
-        zerosToLeft = 0
-        onesToRight = totalOnes
+        total_ones = sum(nums)
+        zeros_to_left = 0
+        ones_to_right = total_ones
 
-        scoreAtEachIndex = [totalOnes]
+        score_at_each_index = [total_ones]
 
         for num in nums:
 
             if num == 0:
-                zerosToLeft += 1
+                zeros_to_left += 1
             else:
-                onesToRight -= 1
+                ones_to_right -= 1
 
-            scoreAtEachIndex.append(zerosToLeft + onesToRight)
+            score_at_each_index.append(zeros_to_left + ones_to_right)
 
-        maxScore = max(scoreAtEachIndex)
+        max_score = max(score_at_each_index)
 
-        maxIndices = [i for i, score in enumerate(scoreAtEachIndex) if score == maxScore]
+        max_indices = [i for i, score in enumerate(score_at_each_index) if score == max_score]
 
-        return maxIndices
+        return max_indices
