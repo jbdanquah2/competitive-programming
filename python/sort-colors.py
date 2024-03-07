@@ -8,7 +8,6 @@ class Solution:
         """
 
         n = len(nums)
-        check = True
 
         for i in range(n):
             check = False
@@ -21,4 +20,3 @@ class Solution:
 
             if not check:
                 break
-=
