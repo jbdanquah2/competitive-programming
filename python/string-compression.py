@@ -59,8 +59,6 @@ def compress(chars: List[str]) -> int:
 
     return j
 
-# what is the time complexity and space complexity of the above code. Please explain:
-# Time complexity: O(n)
 
 
 
