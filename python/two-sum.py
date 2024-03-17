@@ -18,3 +18,7 @@ class Solution(object):
             nums_dict[num] = i
 
         return []
+
+
+solution = Solution()
+print(solution.twoSum([2, 5, 1, 3], 4))
