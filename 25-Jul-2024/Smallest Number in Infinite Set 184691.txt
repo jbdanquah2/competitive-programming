@@ -1,0 +1,40 @@
+# Problem: Smallest Number in Infinite Set - https://leetcode.com/problems/smallest-number-in-infinite-set/description/
+
+class SmallestInfiniteSet {
+    private current: number;
+    private minHeap: number[];
+    private removedSet: Set<number>;
+
+    constructor() {
+        this.current = 1;
+        this.minHeap = [];
+        this.removedSet = new Set<number>();
+    }
+
+    popSmallest(): number {
+        if (this.minHeap.length > 0) {
+            const smallest = this.minHeap.shift()!;
+            this.removedSet.delete(smallest);
+            return smallest;
+        } else {
+            const smallest = this.current;
+            this.current += 1;
+            return smallest;
+        }
+    }
+
+    addBack(num: number): void {
+        if (num < this.current && !this.removedSet.has(num)) {
+            this.minHeap.push(num);
+            this.minHeap.sort((a, b) => a - b); // Keep minHeap sorted
+            this.removedSet.add(num);
+        }
+    }
+}
+
+/**
+ * Your SmallestInfiniteSet object will be instantiated and called as such:
+ * var obj = new SmallestInfiniteSet()
+ * var param_1 = obj.popSmallest()
+ * obj.addBack(num)
+ */
